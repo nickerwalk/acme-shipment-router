@@ -89,7 +89,7 @@ namespace AcmeShipmentRouter
             }
             else
             {
-                suitabilityScore = name.Length - GetVowelCount(name) * oddMultiplier;
+                suitabilityScore = (name.Length - GetVowelCount(name)) * oddMultiplier;
             }
             return suitabilityScore + (suitabilityScore * commonFactorBonus);
         }
