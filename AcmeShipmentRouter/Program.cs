@@ -44,7 +44,17 @@ namespace AcmeShipmentRouter
             var algorithm = new RoutingAlgorithm(addresses, names);
             var bestScores = Task.Run(async () => await algorithm.CalculateBestRoute());
             var totalScore = bestScores.Result.Values.Sum();
-            Console.WriteLine(totalScore);
+            Console.WriteLine("Best Route Calculated");
+            Console.WriteLine("Here are the assigned routes for the day:");
+            foreach(var s in bestScores.Result)
+            {
+                var name = RoutingAlgorithm.GetNameFromScore(s);
+                var address = RoutingAlgorithm.GetAddressFromScore(s);
+                Console.WriteLine($"{name}: \t{address}");
+            }
+            Console.WriteLine($"Today's Suitability Score: {totalScore}");
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey(true);
         }
     }
 }
