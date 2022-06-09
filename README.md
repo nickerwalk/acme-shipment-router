@@ -1,6 +1,6 @@
 # acme-shipment-router
 
-Coding Challenge by Platform Science
+Coding Exercise by Platform Science
 
 # Instructions
 
